@@ -1,0 +1,1685 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
+    
+    
+      
+        <title>4.Quality assurance - Splink</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../css/custom.css">
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#read-in-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Splink" class="md-header__button md-logo" aria-label="Splink" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Splink
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.Quality assurance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/moj-analytical-services/splink" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Splink" class="md-nav__button md-logo" aria-label="Splink" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    Splink
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/moj-analytical-services/splink" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Topic Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Topic Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Topic Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blocking_rules.html" class="md-nav__link">
+        Blocking rules for prediction vs estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          API Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Linker API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linker API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Linker API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linker.html" class="md-nav__link">
+        Full API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linkerexp.html" class="md-nav__link">
+        Exploratory analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linkerest.html" class="md-nav__link">
+        Estimating model parameters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linkerpred.html" class="md-nav__link">
+        Predicting results
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linkerqa.html" class="md-nav__link">
+        Visualisation and quality assurance
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../em_training_session.html" class="md-nav__link">
+        EM Training Session API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SplinkDataFrame.html" class="md-nav__link">
+        SplinkDataFrame API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Comparisons API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Comparisons API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Comparisons API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparison.html" class="md-nav__link">
+        Comparison
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparison_level.html" class="md-nav__link">
+        Comparison Level
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Comparisons Library API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Comparisons Library API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Comparisons Library API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparison_library.html" class="md-nav__link">
+        Comparison Library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparison_level_library.html" class="md-nav__link">
+        Comparison Level Library
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settingseditor/editor.html" class="md-nav__link">
+        Settings Editor
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="00_Tutorial_Introduction.html" class="md-nav__link">
+        0.Tutorial introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01_Exploratory_analysis.html" class="md-nav__link">
+        1.Exploratory analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02_Estimating_model_parameters.html" class="md-nav__link">
+        2.Estimating model parameters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03_Predicting_results.html" class="md-nav__link">
+        3.Predicting results
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          4.Quality assurance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="04_Quality_assurance.html" class="md-nav__link md-nav__link--active">
+        4.Quality assurance
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#read-in-data" class="md-nav__link">
+    Read in data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialise-the-linker-passing-in-the-input-datasets" class="md-nav__link">
+    Initialise the linker, passing in the input dataset(s)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-estimated-model-parameters-from-previous-notebook" class="md-nav__link">
+    Load estimated model parameters from previous notebook
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accuracy-analysis" class="md-nav__link">
+    Accuracy analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Accuracy analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plot-roc-curve" class="md-nav__link">
+    Plot ROC Curve
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-precision-recall-chart" class="md-nav__link">
+    Plot precision-recall chart
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink-comparison-viewer" class="md-nav__link">
+    Splink comparison viewer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering-and-visualising-clusters" class="md-nav__link">
+    Clustering and visualising clusters
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="real_time_record_linkage.html" class="md-nav__link">
+        real time record linkage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="deduplicate_50k_synthetic.html" class="md-nav__link">
+        deduplicate 50k rows of synthetic data
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#read-in-data" class="md-nav__link">
+    Read in data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialise-the-linker-passing-in-the-input-datasets" class="md-nav__link">
+    Initialise the linker, passing in the input dataset(s)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-estimated-model-parameters-from-previous-notebook" class="md-nav__link">
+    Load estimated model parameters from previous notebook
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accuracy-analysis" class="md-nav__link">
+    Accuracy analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Accuracy analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plot-roc-curve" class="md-nav__link">
+    Plot ROC Curve
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-precision-recall-chart" class="md-nav__link">
+    Plot precision-recall chart
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splink-comparison-viewer" class="md-nav__link">
+    Splink comparison viewer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering-and-visualising-clusters" class="md-nav__link">
+    Clustering and visualising clusters
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/moj-analytical-services/splink/edit/master/docs/demos/04_Quality_assurance.ipynb" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  
+
+
+
+  <h1>4.Quality assurance</h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var requireJsScript = document.createElement('script');
+    requireJsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js';
+
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var jupyterWidgetsScript = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    jupyterWidgetsScript.src = widgetRendererSrc;
+
+    document.body.appendChild(requireJsScript);
+    document.body.appendChild(jupyterWidgetsScript);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">splink.duckdb.duckdb_linker</span> <span class="kn">import</span> <span class="n">DuckDBLinker</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="read-in-data">Read in data<a class="headerlink" href="#read-in-data" title="Permanent link">&para;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./data/fake_1000.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique_id</th>
+      <th>first_name</th>
+      <th>surname</th>
+      <th>dob</th>
+      <th>city</th>
+      <th>email</th>
+      <th>cluster</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Robert</td>
+      <td>Alan</td>
+      <td>1971-06-24</td>
+      <td>NaN</td>
+      <td>robert255@smith.net</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Robert</td>
+      <td>Allen</td>
+      <td>1971-05-24</td>
+      <td>NaN</td>
+      <td>roberta25@smith.net</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Rob</td>
+      <td>Allen</td>
+      <td>1971-06-24</td>
+      <td>London</td>
+      <td>roberta25@smith.net</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Robert</td>
+      <td>Alen</td>
+      <td>1971-06-24</td>
+      <td>Lonon</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Grace</td>
+      <td>NaN</td>
+      <td>1997-04-26</td>
+      <td>Hull</td>
+      <td>grace.kelly52@jones.com</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="initialise-the-linker-passing-in-the-input-datasets">Initialise the linker, passing in the input dataset(s)<a class="headerlink" href="#initialise-the-linker-passing-in-the-input-datasets" title="Permanent link">&para;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">linker</span> <span class="o">=</span> <span class="n">DuckDBLinker</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="load-estimated-model-parameters-from-previous-notebook">Load estimated model parameters from previous notebook<a class="headerlink" href="#load-estimated-model-parameters-from-previous-notebook" title="Permanent link">&para;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">linker</span><span class="o">.</span><span class="n">load_settings_from_json</span><span class="p">(</span><span class="s2">&quot;./demo_settings/saved_model_from_demo.json&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="accuracy-analysis">Accuracy analysis<a class="headerlink" href="#accuracy-analysis" title="Permanent link">&para;</a></h2>
+<p>Since we have labels in this dataset, we can compute the accuracy of our trained model</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df_labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./data/fake_1000_labels.csv&quot;</span><span class="p">)</span>
+<span class="n">df_labels</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique_id_l</th>
+      <th>source_dataset_l</th>
+      <th>unique_id_r</th>
+      <th>source_dataset_r</th>
+      <th>clerical_match_score</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>fake_1000</td>
+      <td>1</td>
+      <td>fake_1000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>fake_1000</td>
+      <td>2</td>
+      <td>fake_1000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>fake_1000</td>
+      <td>3</td>
+      <td>fake_1000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>fake_1000</td>
+      <td>4</td>
+      <td>fake_1000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>fake_1000</td>
+      <td>5</td>
+      <td>fake_1000</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then to produce the chart:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df_predictions</span> <span class="o">=</span> <span class="n">linker</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+<span class="n">linker</span><span class="o">.</span><span class="n">_initialise_df_concat_with_tf</span><span class="p">()</span>
+<span class="n">linker</span><span class="o">.</span><span class="n">_con</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;labels&quot;</span><span class="p">,</span> <span class="n">df_labels</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;duckdb.DuckDBPyConnection at 0x7fdb1411e770&gt;</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="plot-roc-curve">Plot ROC Curve<a class="headerlink" href="#plot-roc-curve" title="Permanent link">&para;</a></h3>
+<p>using <code>roc_chart_from_labels</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">linker</span><span class="o">.</span><span class="n">roc_chart_from_labels</span><span class="p">(</span><span class="s2">&quot;labels&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div id="altair-viz-223929c19b2e472ab749f18878303f17"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-223929c19b2e472ab749f18878303f17") {
+      outputDiv = document.getElementById("altair-viz-223929c19b2e472ab749f18878303f17");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "title": "Receiver operating characteristic curve", "height": 400, "width": 400, "data": {"values": [{"truth_threshold": -13.903062442799735, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 80.0, "TN": 0.0, "FP": 1145.0, "FN": 0.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 1.0, "TN_rate": 0.0, "FP_rate": 1.0, "FN_rate": 0.0, "precision": 0.06530611962080002, "recall": 1.0}, {"truth_threshold": -13.058704668773524, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 79.0, "TN": 103.0, "FP": 1042.0, "FN": 1.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.987500011920929, "TN_rate": 0.08995632827281952, "FP_rate": 0.9100436568260193, "FN_rate": 0.012500000186264515, "precision": 0.07047279179096222, "recall": 0.987500011920929}, {"truth_threshold": -12.7763868075079, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 79.0, "TN": 145.0, "FP": 1000.0, "FN": 1.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.987500011920929, "TN_rate": 0.1266375482082367, "FP_rate": 0.8733624219894409, "FN_rate": 0.012500000186264515, "precision": 0.07321593910455704, "recall": 0.987500011920929}, {"truth_threshold": -12.710385493817329, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 79.0, "TN": 320.0, "FP": 825.0, "FN": 1.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.987500011920929, "TN_rate": 0.27947598695755005, "FP_rate": 0.72052401304245, "FN_rate": 0.012500000186264515, "precision": 0.08738937973976135, "recall": 0.987500011920929}, {"truth_threshold": -11.932029033481689, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 78.0, "TN": 401.0, "FP": 744.0, "FN": 2.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.9750000238418579, "TN_rate": 0.3502183258533478, "FP_rate": 0.6497816443443298, "FN_rate": 0.02500000037252903, "precision": 0.09489051252603531, "recall": 0.9750000238418579}, {"truth_threshold": -11.866027719791118, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 76.0, "TN": 510.0, "FP": 635.0, "FN": 4.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.949999988079071, "TN_rate": 0.44541484117507935, "FP_rate": 0.5545851588249207, "FN_rate": 0.05000000074505806, "precision": 0.1068916991353035, "recall": 0.949999988079071}, {"truth_threshold": -11.83041172765448, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 76.0, "TN": 523.0, "FP": 622.0, "FN": 4.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.949999988079071, "TN_rate": 0.45676857233047485, "FP_rate": 0.5432314276695251, "FN_rate": 0.05000000074505806, "precision": 0.10888252407312393, "recall": 0.949999988079071}, {"truth_threshold": -11.583709858525493, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 76.0, "TN": 611.0, "FP": 534.0, "FN": 4.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.949999988079071, "TN_rate": 0.5336244702339172, "FP_rate": 0.46637555956840515, "FN_rate": 0.05000000074505806, "precision": 0.12459016591310501, "recall": 0.949999988079071}, {"truth_threshold": -11.361755012505549, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 75.0, "TN": 705.0, "FP": 440.0, "FN": 5.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.9375, "TN_rate": 0.6157205104827881, "FP_rate": 0.3842794895172119, "FN_rate": 0.0625, "precision": 0.1456310749053955, "recall": 0.9375}, {"truth_threshold": -10.98605395362827, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 74.0, "TN": 721.0, "FP": 424.0, "FN": 6.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.925000011920929, "TN_rate": 0.6296943426132202, "FP_rate": 0.3703056871891022, "FN_rate": 0.07500000298023224, "precision": 0.14859437942504883, "recall": 0.925000011920929}, {"truth_threshold": -10.739352084499282, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 74.0, "TN": 759.0, "FP": 386.0, "FN": 6.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.925000011920929, "TN_rate": 0.6628820896148682, "FP_rate": 0.33711791038513184, "FN_rate": 0.07500000298023224, "precision": 0.1608695685863495, "recall": 0.925000011920929}, {"truth_threshold": -10.703736092362647, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 73.0, "TN": 784.0, "FP": 361.0, "FN": 7.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.9125000238418579, "TN_rate": 0.6847161650657654, "FP_rate": 0.3152838349342346, "FN_rate": 0.08749999850988388, "precision": 0.16820275783538818, "recall": 0.9125000238418579}, {"truth_threshold": -10.637734778672074, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 73.0, "TN": 826.0, "FP": 319.0, "FN": 7.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.9125000238418579, "TN_rate": 0.7213973999023438, "FP_rate": 0.27860262989997864, "FN_rate": 0.08749999850988388, "precision": 0.18622449040412903, "recall": 0.9125000238418579}, {"truth_threshold": -10.517397238479338, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 72.0, "TN": 918.0, "FP": 227.0, "FN": 8.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8999999761581421, "TN_rate": 0.8017467260360718, "FP_rate": 0.19825327396392822, "FN_rate": 0.10000000149011612, "precision": 0.24080267548561096, "recall": 0.8999999761581421}, {"truth_threshold": -10.169078063523143, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 72.0, "TN": 924.0, "FP": 221.0, "FN": 8.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8999999761581421, "TN_rate": 0.806986927986145, "FP_rate": 0.19301310181617737, "FN_rate": 0.10000000149011612, "precision": 0.24573378264904022, "recall": 0.8999999761581421}, {"truth_threshold": -9.859378318336436, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 72.0, "TN": 931.0, "FP": 214.0, "FN": 8.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8999999761581421, "TN_rate": 0.8131004571914673, "FP_rate": 0.1868995577096939, "FN_rate": 0.10000000149011612, "precision": 0.251748263835907, "recall": 0.8999999761581421}, {"truth_threshold": -9.793377004645865, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 72.0, "TN": 957.0, "FP": 188.0, "FN": 8.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8999999761581421, "TN_rate": 0.8358078598976135, "FP_rate": 0.16419214010238647, "FN_rate": 0.10000000149011612, "precision": 0.2769230902194977, "recall": 0.8999999761581421}, {"truth_threshold": -9.51105914338024, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 72.0, "TN": 973.0, "FP": 172.0, "FN": 8.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8999999761581421, "TN_rate": 0.8497816324234009, "FP_rate": 0.15021833777427673, "FN_rate": 0.10000000149011612, "precision": 0.2950819730758667, "recall": 0.8999999761581421}, {"truth_threshold": -9.324720289496932, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 71.0, "TN": 1093.0, "FP": 52.0, "FN": 9.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.887499988079071, "TN_rate": 0.9545851349830627, "FP_rate": 0.045414846390485764, "FN_rate": 0.11249999701976776, "precision": 0.577235758304596, "recall": 0.887499988079071}, {"truth_threshold": -8.66670136935403, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 71.0, "TN": 1094.0, "FP": 51.0, "FN": 9.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.887499988079071, "TN_rate": 0.9554585218429565, "FP_rate": 0.044541485607624054, "FN_rate": 0.11249999701976776, "precision": 0.5819672346115112, "recall": 0.887499988079071}, {"truth_threshold": -8.096427348377889, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 71.0, "TN": 1118.0, "FP": 27.0, "FN": 9.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.887499988079071, "TN_rate": 0.97641921043396, "FP_rate": 0.02358078584074974, "FN_rate": 0.11249999701976776, "precision": 0.7244898080825806, "recall": 0.887499988079071}, {"truth_threshold": -7.252069574351679, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1123.0, "FP": 22.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9807860255241394, "FP_rate": 0.019213974475860596, "FN_rate": 0.13750000298023224, "precision": 0.7582417726516724, "recall": 0.862500011920929}, {"truth_threshold": -7.089702373794927, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1124.0, "FP": 21.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9816594123840332, "FP_rate": 0.018340611830353737, "FN_rate": 0.13750000298023224, "precision": 0.7666666507720947, "recall": 0.862500011920929}, {"truth_threshold": -6.245344599768718, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1127.0, "FP": 18.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.984279453754425, "FP_rate": 0.01572052389383316, "FN_rate": 0.13750000298023224, "precision": 0.7931034564971924, "recall": 0.862500011920929}, {"truth_threshold": -5.963026738503093, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1128.0, "FP": 17.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9851528406143188, "FP_rate": 0.014847161248326302, "FN_rate": 0.13750000298023224, "precision": 0.8023256063461304, "recall": 0.862500011920929}, {"truth_threshold": -5.024401071165882, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1133.0, "FP": 12.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9895196557044983, "FP_rate": 0.010480348952114582, "FN_rate": 0.13750000298023224, "precision": 0.8518518805503845, "recall": 0.862500011920929}, {"truth_threshold": -4.7703497895206874, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1136.0, "FP": 9.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9921397566795349, "FP_rate": 0.00786026194691658, "FN_rate": 0.13750000298023224, "precision": 0.8846153616905212, "recall": 0.862500011920929}, {"truth_threshold": -4.548394943500742, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1142.0, "FP": 3.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9973798990249634, "FP_rate": 0.0026200872380286455, "FN_rate": 0.13750000298023224, "precision": 0.9583333134651184, "recall": 0.862500011920929}, {"truth_threshold": -4.285461162518124, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1144.0, "FP": 1.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9991266131401062, "FP_rate": 0.0008733624708838761, "FN_rate": 0.13750000298023224, "precision": 0.9857142567634583, "recall": 0.862500011920929}, {"truth_threshold": -4.219459848827554, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 68.0, "TN": 1144.0, "FP": 1.0, "FN": 12.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8500000238418579, "TN_rate": 0.9991266131401062, "FP_rate": 0.0008733624708838761, "FN_rate": 0.15000000596046448, "precision": 0.9855072498321533, "recall": 0.8500000238418579}, {"truth_threshold": -4.121688164697996, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 67.0, "TN": 1144.0, "FP": 1.0, "FN": 13.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8374999761581421, "TN_rate": 0.9991266131401062, "FP_rate": 0.0008733624708838761, "FN_rate": 0.16249999403953552, "precision": 0.9852941036224365, "recall": 0.8374999761581421}, {"truth_threshold": -4.055686851007426, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 66.0, "TN": 1144.0, "FP": 1.0, "FN": 14.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.824999988079071, "TN_rate": 0.9991266131401062, "FP_rate": 0.0008733624708838761, "FN_rate": 0.17499999701976776, "precision": 0.9850746393203735, "recall": 0.824999988079071}, {"truth_threshold": -3.9259920154944767, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 65.0, "TN": 1144.0, "FP": 1.0, "FN": 15.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8125, "TN_rate": 0.9991266131401062, "FP_rate": 0.0008733624708838761, "FN_rate": 0.1875, "precision": 0.9848484992980957, "recall": 0.8125}, {"truth_threshold": -3.8317241221834766, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 64.0, "TN": 1144.0, "FP": 1.0, "FN": 16.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.800000011920929, "TN_rate": 0.9991266131401062, "FP_rate": 0.0008733624708838761, "FN_rate": 0.20000000298023224, "precision": 0.9846153855323792, "recall": 0.800000011920929}, {"truth_threshold": -3.5789951484084357, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 64.0, "TN": 1145.0, "FP": 0.0, "FN": 16.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.800000011920929, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.20000000298023224, "precision": 1.0, "recall": 0.800000011920929}, {"truth_threshold": -3.4411033884919133, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 63.0, "TN": 1145.0, "FP": 0.0, "FN": 17.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.7875000238418579, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.21250000596046448, "precision": 1.0, "recall": 0.7875000238418579}, {"truth_threshold": -3.3751020748013425, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 62.0, "TN": 1145.0, "FP": 0.0, "FN": 18.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.7749999761581421, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.22499999403953552, "precision": 1.0, "recall": 0.7749999761581421}, {"truth_threshold": -3.277330390671786, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 61.0, "TN": 1145.0, "FP": 0.0, "FN": 19.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.762499988079071, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.23749999701976776, "precision": 1.0, "recall": 0.762499988079071}, {"truth_threshold": -3.0927842135357184, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 58.0, "TN": 1145.0, "FP": 0.0, "FN": 22.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.7250000238418579, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.2750000059604645, "precision": 1.0, "recall": 0.7250000238418579}, {"truth_threshold": -2.3313553108183678, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 56.0, "TN": 1145.0, "FP": 0.0, "FN": 24.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.699999988079071, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.30000001192092896, "precision": 1.0, "recall": 0.699999988079071}, {"truth_threshold": -2.1643633534060847, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 55.0, "TN": 1145.0, "FP": 0.0, "FN": 25.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.6875, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.3125, "precision": 1.0, "recall": 0.6875}, {"truth_threshold": -2.1563896480834703, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 54.0, "TN": 1145.0, "FP": 0.0, "FN": 26.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.675000011920929, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.32499998807907104, "precision": 1.0, "recall": 0.675000011920929}, {"truth_threshold": -2.0264715934895623, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 52.0, "TN": 1145.0, "FP": 0.0, "FN": 28.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.6499999761581421, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.3499999940395355, "precision": 1.0, "recall": 0.6499999761581421}, {"truth_threshold": -1.9830361358621726, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 51.0, "TN": 1145.0, "FP": 0.0, "FN": 29.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.637499988079071, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.36250001192092896, "precision": 1.0, "recall": 0.637499988079071}, {"truth_threshold": -0.8563605005703377, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 49.0, "TN": 1145.0, "FP": 0.0, "FN": 31.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.612500011920929, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.38749998807907104, "precision": 1.0, "recall": 0.612500011920929}, {"truth_threshold": -0.7417578530811191, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 48.0, "TN": 1145.0, "FP": 0.0, "FN": 32.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.6000000238418579, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.4000000059604645, "precision": 1.0, "recall": 0.6000000238418579}, {"truth_threshold": -0.012002726544127233, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 47.0, "TN": 1145.0, "FP": 0.0, "FN": 33.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.5874999761581421, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.4124999940395355, "precision": 1.0, "recall": 0.5874999761581421}, {"truth_threshold": 3.1352096464692165, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 46.0, "TN": 1145.0, "FP": 0.0, "FN": 34.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.574999988079071, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.42500001192092896, "precision": 1.0, "recall": 0.574999988079071}, {"truth_threshold": 3.6302975716440202, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 43.0, "TN": 1145.0, "FP": 0.0, "FN": 37.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.5375000238418579, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.4625000059604645, "precision": 1.0, "recall": 0.5375000238418579}, {"truth_threshold": 3.775674346888334, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 42.0, "TN": 1145.0, "FP": 0.0, "FN": 38.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.5249999761581421, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.4749999940395355, "precision": 1.0, "recall": 0.5249999761581421}, {"truth_threshold": 3.7852548612895047, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 41.0, "TN": 1145.0, "FP": 0.0, "FN": 39.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.512499988079071, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.48750001192092896, "precision": 1.0, "recall": 0.512499988079071}, {"truth_threshold": 4.178956410452192, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 38.0, "TN": 1145.0, "FP": 0.0, "FN": 42.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.4749999940395355, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.5249999761581421, "precision": 1.0, "recall": 0.4749999940395355}, {"truth_threshold": 4.261885281761051, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 37.0, "TN": 1145.0, "FP": 0.0, "FN": 43.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.4625000059604645, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.5375000238418579, "precision": 1.0, "recall": 0.4625000059604645}, {"truth_threshold": 4.629612635315715, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 34.0, "TN": 1145.0, "FP": 0.0, "FN": 46.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.42500001192092896, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.574999988079071, "precision": 1.0, "recall": 0.42500001192092896}, {"truth_threshold": 4.822974520626426, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 30.0, "TN": 1145.0, "FP": 0.0, "FN": 50.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.375, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.625, "precision": 1.0, "recall": 0.375}, {"truth_threshold": 5.075703494401467, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 27.0, "TN": 1145.0, "FP": 0.0, "FN": 53.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.3375000059604645, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.6625000238418579, "precision": 1.0, "recall": 0.3375000059604645}, {"truth_threshold": 5.371633359434597, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 25.0, "TN": 1145.0, "FP": 0.0, "FN": 55.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.3125, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.6875, "precision": 1.0, "recall": 0.3125}, {"truth_threshold": 5.561914429274184, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 23.0, "TN": 1145.0, "FP": 0.0, "FN": 57.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.2874999940395355, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.7124999761581421, "precision": 1.0, "recall": 0.2874999940395355}, {"truth_threshold": 5.75628827060755, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 22.0, "TN": 1145.0, "FP": 0.0, "FN": 58.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.2750000059604645, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.7250000238418579, "precision": 1.0, "recall": 0.2750000059604645}, {"truth_threshold": 5.848325062033588, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 20.0, "TN": 1145.0, "FP": 0.0, "FN": 60.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.25, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.75, "precision": 1.0, "recall": 0.25}, {"truth_threshold": 6.4983089947264325, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 19.0, "TN": 1145.0, "FP": 0.0, "FN": 61.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.23749999701976776, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.762499988079071, "precision": 1.0, "recall": 0.23749999701976776}, {"truth_threshold": 7.14835420954672, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 17.0, "TN": 1145.0, "FP": 0.0, "FN": 63.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.21250000596046448, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.7875000238418579, "precision": 1.0, "recall": 0.21250000596046448}, {"truth_threshold": 7.992711983572931, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 16.0, "TN": 1145.0, "FP": 0.0, "FN": 64.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.20000000298023224, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.800000011920929, "precision": 1.0, "recall": 0.20000000298023224}, {"truth_threshold": 10.597231340296712, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 15.0, "TN": 1145.0, "FP": 0.0, "FN": 65.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.1875, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.8125, "precision": 1.0, "recall": 0.1875}, {"truth_threshold": 10.98496706694079, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 13.0, "TN": 1145.0, "FP": 0.0, "FN": 67.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.16249999403953552, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.8374999761581421, "precision": 1.0, "recall": 0.16249999403953552}, {"truth_threshold": 11.723906975588548, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 12.0, "TN": 1145.0, "FP": 0.0, "FN": 68.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.15000000596046448, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.8500000238418579, "precision": 1.0, "recall": 0.15000000596046448}, {"truth_threshold": 11.789908289279118, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 11.0, "TN": 1145.0, "FP": 0.0, "FN": 69.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.13750000298023224, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.862500011920929, "precision": 1.0, "recall": 0.13750000298023224}, {"truth_threshold": 12.26659999187811, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 10.0, "TN": 1145.0, "FP": 0.0, "FN": 70.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.125, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.875, "precision": 1.0, "recall": 0.125}, {"truth_threshold": 12.827689230743484, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 9.0, "TN": 1145.0, "FP": 0.0, "FN": 71.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.11249999701976776, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.887499988079071, "precision": 1.0, "recall": 0.11249999701976776}, {"truth_threshold": 12.916583924570954, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 8.0, "TN": 1145.0, "FP": 0.0, "FN": 72.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.10000000149011612, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.8999999761581421, "precision": 1.0, "recall": 0.10000000149011612}, {"truth_threshold": 13.034617084154403, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 7.0, "TN": 1145.0, "FP": 0.0, "FN": 73.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.08749999850988388, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.9125000238418579, "precision": 1.0, "recall": 0.08749999850988388}, {"truth_threshold": 13.1385387705909, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 6.0, "TN": 1145.0, "FP": 0.0, "FN": 74.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.07500000298023224, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.925000011920929, "precision": 1.0, "recall": 0.07500000298023224}, {"truth_threshold": 14.503023704843491, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 5.0, "TN": 1145.0, "FP": 0.0, "FN": 75.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.0625, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.9375, "precision": 1.0, "recall": 0.0625}, {"truth_threshold": 20.92129863468801, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 4.0, "TN": 1145.0, "FP": 0.0, "FN": 76.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.05000000074505806, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.949999988079071, "precision": 1.0, "recall": 0.05000000074505806}, {"truth_threshold": 24.448630562439725, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 3.0, "TN": 1145.0, "FP": 0.0, "FN": 77.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.03750000149011612, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.9624999761581421, "precision": 1.0, "recall": 0.03750000149011612}]}, "mark": {"type": "line", "clip": true, "point": true}, "encoding": {"tooltip": [{"type": "quantitative", "field": "truth_threshold", "format": ".4f"}, {"type": "quantitative", "field": "FP_rate", "format": ".4f"}, {"type": "quantitative", "field": "TP_rate", "format": ".4f"}, {"type": "quantitative", "field": "TP", "format": ",.0f"}, {"type": "quantitative", "field": "TN", "format": ",.0f"}, {"type": "quantitative", "field": "FP", "format": ",.0f"}, {"type": "quantitative", "field": "FN", "format": ",.0f"}, {"type": "quantitative", "field": "precision", "format": ".4f"}, {"type": "quantitative", "field": "recall", "format": ".4f"}], "x": {"type": "quantitative", "field": "FP_rate", "sort": ["truth_threshold"], "title": "False Positive Rate amongst clerically reviewed records"}, "y": {"type": "quantitative", "field": "TP_rate", "sort": ["truth_threshold"], "title": "True Positive Rate amongst clerically reviewed records"}}, "selection": {"selector076": {"type": "interval", "bind": "scales", "encodings": ["x"]}}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="plot-precision-recall-chart">Plot precision-recall chart<a class="headerlink" href="#plot-precision-recall-chart" title="Permanent link">&para;</a></h3>
+<p>A precision-recall chart is also available with <code>linker.precision_recall_from_labels</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">linker</span><span class="o">.</span><span class="n">precision_recall_chart_from_labels</span><span class="p">(</span><span class="s2">&quot;labels&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div id="altair-viz-7771848f962e4ed385bd4da25cf84f25"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-7771848f962e4ed385bd4da25cf84f25") {
+      outputDiv = document.getElementById("altair-viz-7771848f962e4ed385bd4da25cf84f25");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "title": "Precision-recall curve", "data": {"values": [{"truth_threshold": -13.903062442799735, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 80.0, "TN": 0.0, "FP": 1145.0, "FN": 0.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 1.0, "TN_rate": 0.0, "FP_rate": 1.0, "FN_rate": 0.0, "precision": 0.06530611962080002, "recall": 1.0}, {"truth_threshold": -13.058704668773524, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 79.0, "TN": 103.0, "FP": 1042.0, "FN": 1.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.987500011920929, "TN_rate": 0.08995632827281952, "FP_rate": 0.9100436568260193, "FN_rate": 0.012500000186264515, "precision": 0.07047279179096222, "recall": 0.987500011920929}, {"truth_threshold": -12.7763868075079, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 79.0, "TN": 145.0, "FP": 1000.0, "FN": 1.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.987500011920929, "TN_rate": 0.1266375482082367, "FP_rate": 0.8733624219894409, "FN_rate": 0.012500000186264515, "precision": 0.07321593910455704, "recall": 0.987500011920929}, {"truth_threshold": -12.710385493817329, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 79.0, "TN": 320.0, "FP": 825.0, "FN": 1.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.987500011920929, "TN_rate": 0.27947598695755005, "FP_rate": 0.72052401304245, "FN_rate": 0.012500000186264515, "precision": 0.08738937973976135, "recall": 0.987500011920929}, {"truth_threshold": -11.932029033481689, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 78.0, "TN": 401.0, "FP": 744.0, "FN": 2.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.9750000238418579, "TN_rate": 0.3502183258533478, "FP_rate": 0.6497816443443298, "FN_rate": 0.02500000037252903, "precision": 0.09489051252603531, "recall": 0.9750000238418579}, {"truth_threshold": -11.866027719791118, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 76.0, "TN": 510.0, "FP": 635.0, "FN": 4.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.949999988079071, "TN_rate": 0.44541484117507935, "FP_rate": 0.5545851588249207, "FN_rate": 0.05000000074505806, "precision": 0.1068916991353035, "recall": 0.949999988079071}, {"truth_threshold": -11.83041172765448, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 76.0, "TN": 523.0, "FP": 622.0, "FN": 4.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.949999988079071, "TN_rate": 0.45676857233047485, "FP_rate": 0.5432314276695251, "FN_rate": 0.05000000074505806, "precision": 0.10888252407312393, "recall": 0.949999988079071}, {"truth_threshold": -11.583709858525493, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 76.0, "TN": 611.0, "FP": 534.0, "FN": 4.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.949999988079071, "TN_rate": 0.5336244702339172, "FP_rate": 0.46637555956840515, "FN_rate": 0.05000000074505806, "precision": 0.12459016591310501, "recall": 0.949999988079071}, {"truth_threshold": -11.361755012505549, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 75.0, "TN": 705.0, "FP": 440.0, "FN": 5.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.9375, "TN_rate": 0.6157205104827881, "FP_rate": 0.3842794895172119, "FN_rate": 0.0625, "precision": 0.1456310749053955, "recall": 0.9375}, {"truth_threshold": -10.98605395362827, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 74.0, "TN": 721.0, "FP": 424.0, "FN": 6.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.925000011920929, "TN_rate": 0.6296943426132202, "FP_rate": 0.3703056871891022, "FN_rate": 0.07500000298023224, "precision": 0.14859437942504883, "recall": 0.925000011920929}, {"truth_threshold": -10.739352084499282, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 74.0, "TN": 759.0, "FP": 386.0, "FN": 6.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.925000011920929, "TN_rate": 0.6628820896148682, "FP_rate": 0.33711791038513184, "FN_rate": 0.07500000298023224, "precision": 0.1608695685863495, "recall": 0.925000011920929}, {"truth_threshold": -10.703736092362647, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 73.0, "TN": 784.0, "FP": 361.0, "FN": 7.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.9125000238418579, "TN_rate": 0.6847161650657654, "FP_rate": 0.3152838349342346, "FN_rate": 0.08749999850988388, "precision": 0.16820275783538818, "recall": 0.9125000238418579}, {"truth_threshold": -10.637734778672074, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 73.0, "TN": 826.0, "FP": 319.0, "FN": 7.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.9125000238418579, "TN_rate": 0.7213973999023438, "FP_rate": 0.27860262989997864, "FN_rate": 0.08749999850988388, "precision": 0.18622449040412903, "recall": 0.9125000238418579}, {"truth_threshold": -10.517397238479338, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 72.0, "TN": 918.0, "FP": 227.0, "FN": 8.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8999999761581421, "TN_rate": 0.8017467260360718, "FP_rate": 0.19825327396392822, "FN_rate": 0.10000000149011612, "precision": 0.24080267548561096, "recall": 0.8999999761581421}, {"truth_threshold": -10.169078063523143, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 72.0, "TN": 924.0, "FP": 221.0, "FN": 8.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8999999761581421, "TN_rate": 0.806986927986145, "FP_rate": 0.19301310181617737, "FN_rate": 0.10000000149011612, "precision": 0.24573378264904022, "recall": 0.8999999761581421}, {"truth_threshold": -9.859378318336436, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 72.0, "TN": 931.0, "FP": 214.0, "FN": 8.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8999999761581421, "TN_rate": 0.8131004571914673, "FP_rate": 0.1868995577096939, "FN_rate": 0.10000000149011612, "precision": 0.251748263835907, "recall": 0.8999999761581421}, {"truth_threshold": -9.793377004645865, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 72.0, "TN": 957.0, "FP": 188.0, "FN": 8.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8999999761581421, "TN_rate": 0.8358078598976135, "FP_rate": 0.16419214010238647, "FN_rate": 0.10000000149011612, "precision": 0.2769230902194977, "recall": 0.8999999761581421}, {"truth_threshold": -9.51105914338024, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 72.0, "TN": 973.0, "FP": 172.0, "FN": 8.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8999999761581421, "TN_rate": 0.8497816324234009, "FP_rate": 0.15021833777427673, "FN_rate": 0.10000000149011612, "precision": 0.2950819730758667, "recall": 0.8999999761581421}, {"truth_threshold": -9.324720289496932, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 71.0, "TN": 1093.0, "FP": 52.0, "FN": 9.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.887499988079071, "TN_rate": 0.9545851349830627, "FP_rate": 0.045414846390485764, "FN_rate": 0.11249999701976776, "precision": 0.577235758304596, "recall": 0.887499988079071}, {"truth_threshold": -8.66670136935403, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 71.0, "TN": 1094.0, "FP": 51.0, "FN": 9.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.887499988079071, "TN_rate": 0.9554585218429565, "FP_rate": 0.044541485607624054, "FN_rate": 0.11249999701976776, "precision": 0.5819672346115112, "recall": 0.887499988079071}, {"truth_threshold": -8.096427348377889, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 71.0, "TN": 1118.0, "FP": 27.0, "FN": 9.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.887499988079071, "TN_rate": 0.97641921043396, "FP_rate": 0.02358078584074974, "FN_rate": 0.11249999701976776, "precision": 0.7244898080825806, "recall": 0.887499988079071}, {"truth_threshold": -7.252069574351679, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1123.0, "FP": 22.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9807860255241394, "FP_rate": 0.019213974475860596, "FN_rate": 0.13750000298023224, "precision": 0.7582417726516724, "recall": 0.862500011920929}, {"truth_threshold": -7.089702373794927, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1124.0, "FP": 21.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9816594123840332, "FP_rate": 0.018340611830353737, "FN_rate": 0.13750000298023224, "precision": 0.7666666507720947, "recall": 0.862500011920929}, {"truth_threshold": -6.245344599768718, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1127.0, "FP": 18.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.984279453754425, "FP_rate": 0.01572052389383316, "FN_rate": 0.13750000298023224, "precision": 0.7931034564971924, "recall": 0.862500011920929}, {"truth_threshold": -5.963026738503093, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1128.0, "FP": 17.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9851528406143188, "FP_rate": 0.014847161248326302, "FN_rate": 0.13750000298023224, "precision": 0.8023256063461304, "recall": 0.862500011920929}, {"truth_threshold": -5.024401071165882, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1133.0, "FP": 12.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9895196557044983, "FP_rate": 0.010480348952114582, "FN_rate": 0.13750000298023224, "precision": 0.8518518805503845, "recall": 0.862500011920929}, {"truth_threshold": -4.7703497895206874, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1136.0, "FP": 9.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9921397566795349, "FP_rate": 0.00786026194691658, "FN_rate": 0.13750000298023224, "precision": 0.8846153616905212, "recall": 0.862500011920929}, {"truth_threshold": -4.548394943500742, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1142.0, "FP": 3.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9973798990249634, "FP_rate": 0.0026200872380286455, "FN_rate": 0.13750000298023224, "precision": 0.9583333134651184, "recall": 0.862500011920929}, {"truth_threshold": -4.285461162518124, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 69.0, "TN": 1144.0, "FP": 1.0, "FN": 11.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.862500011920929, "TN_rate": 0.9991266131401062, "FP_rate": 0.0008733624708838761, "FN_rate": 0.13750000298023224, "precision": 0.9857142567634583, "recall": 0.862500011920929}, {"truth_threshold": -4.219459848827554, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 68.0, "TN": 1144.0, "FP": 1.0, "FN": 12.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8500000238418579, "TN_rate": 0.9991266131401062, "FP_rate": 0.0008733624708838761, "FN_rate": 0.15000000596046448, "precision": 0.9855072498321533, "recall": 0.8500000238418579}, {"truth_threshold": -4.121688164697996, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 67.0, "TN": 1144.0, "FP": 1.0, "FN": 13.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8374999761581421, "TN_rate": 0.9991266131401062, "FP_rate": 0.0008733624708838761, "FN_rate": 0.16249999403953552, "precision": 0.9852941036224365, "recall": 0.8374999761581421}, {"truth_threshold": -4.055686851007426, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 66.0, "TN": 1144.0, "FP": 1.0, "FN": 14.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.824999988079071, "TN_rate": 0.9991266131401062, "FP_rate": 0.0008733624708838761, "FN_rate": 0.17499999701976776, "precision": 0.9850746393203735, "recall": 0.824999988079071}, {"truth_threshold": -3.9259920154944767, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 65.0, "TN": 1144.0, "FP": 1.0, "FN": 15.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.8125, "TN_rate": 0.9991266131401062, "FP_rate": 0.0008733624708838761, "FN_rate": 0.1875, "precision": 0.9848484992980957, "recall": 0.8125}, {"truth_threshold": -3.8317241221834766, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 64.0, "TN": 1144.0, "FP": 1.0, "FN": 16.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.800000011920929, "TN_rate": 0.9991266131401062, "FP_rate": 0.0008733624708838761, "FN_rate": 0.20000000298023224, "precision": 0.9846153855323792, "recall": 0.800000011920929}, {"truth_threshold": -3.5789951484084357, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 64.0, "TN": 1145.0, "FP": 0.0, "FN": 16.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.800000011920929, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.20000000298023224, "precision": 1.0, "recall": 0.800000011920929}, {"truth_threshold": -3.4411033884919133, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 63.0, "TN": 1145.0, "FP": 0.0, "FN": 17.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.7875000238418579, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.21250000596046448, "precision": 1.0, "recall": 0.7875000238418579}, {"truth_threshold": -3.3751020748013425, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 62.0, "TN": 1145.0, "FP": 0.0, "FN": 18.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.7749999761581421, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.22499999403953552, "precision": 1.0, "recall": 0.7749999761581421}, {"truth_threshold": -3.277330390671786, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 61.0, "TN": 1145.0, "FP": 0.0, "FN": 19.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.762499988079071, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.23749999701976776, "precision": 1.0, "recall": 0.762499988079071}, {"truth_threshold": -3.0927842135357184, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 58.0, "TN": 1145.0, "FP": 0.0, "FN": 22.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.7250000238418579, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.2750000059604645, "precision": 1.0, "recall": 0.7250000238418579}, {"truth_threshold": -2.3313553108183678, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 56.0, "TN": 1145.0, "FP": 0.0, "FN": 24.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.699999988079071, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.30000001192092896, "precision": 1.0, "recall": 0.699999988079071}, {"truth_threshold": -2.1643633534060847, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 55.0, "TN": 1145.0, "FP": 0.0, "FN": 25.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.6875, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.3125, "precision": 1.0, "recall": 0.6875}, {"truth_threshold": -2.1563896480834703, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 54.0, "TN": 1145.0, "FP": 0.0, "FN": 26.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.675000011920929, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.32499998807907104, "precision": 1.0, "recall": 0.675000011920929}, {"truth_threshold": -2.0264715934895623, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 52.0, "TN": 1145.0, "FP": 0.0, "FN": 28.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.6499999761581421, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.3499999940395355, "precision": 1.0, "recall": 0.6499999761581421}, {"truth_threshold": -1.9830361358621726, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 51.0, "TN": 1145.0, "FP": 0.0, "FN": 29.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.637499988079071, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.36250001192092896, "precision": 1.0, "recall": 0.637499988079071}, {"truth_threshold": -0.8563605005703377, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 49.0, "TN": 1145.0, "FP": 0.0, "FN": 31.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.612500011920929, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.38749998807907104, "precision": 1.0, "recall": 0.612500011920929}, {"truth_threshold": -0.7417578530811191, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 48.0, "TN": 1145.0, "FP": 0.0, "FN": 32.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.6000000238418579, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.4000000059604645, "precision": 1.0, "recall": 0.6000000238418579}, {"truth_threshold": -0.012002726544127233, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 47.0, "TN": 1145.0, "FP": 0.0, "FN": 33.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.5874999761581421, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.4124999940395355, "precision": 1.0, "recall": 0.5874999761581421}, {"truth_threshold": 3.1352096464692165, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 46.0, "TN": 1145.0, "FP": 0.0, "FN": 34.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.574999988079071, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.42500001192092896, "precision": 1.0, "recall": 0.574999988079071}, {"truth_threshold": 3.6302975716440202, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 43.0, "TN": 1145.0, "FP": 0.0, "FN": 37.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.5375000238418579, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.4625000059604645, "precision": 1.0, "recall": 0.5375000238418579}, {"truth_threshold": 3.775674346888334, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 42.0, "TN": 1145.0, "FP": 0.0, "FN": 38.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.5249999761581421, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.4749999940395355, "precision": 1.0, "recall": 0.5249999761581421}, {"truth_threshold": 3.7852548612895047, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 41.0, "TN": 1145.0, "FP": 0.0, "FN": 39.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.512499988079071, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.48750001192092896, "precision": 1.0, "recall": 0.512499988079071}, {"truth_threshold": 4.178956410452192, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 38.0, "TN": 1145.0, "FP": 0.0, "FN": 42.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.4749999940395355, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.5249999761581421, "precision": 1.0, "recall": 0.4749999940395355}, {"truth_threshold": 4.261885281761051, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 37.0, "TN": 1145.0, "FP": 0.0, "FN": 43.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.4625000059604645, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.5375000238418579, "precision": 1.0, "recall": 0.4625000059604645}, {"truth_threshold": 4.629612635315715, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 34.0, "TN": 1145.0, "FP": 0.0, "FN": 46.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.42500001192092896, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.574999988079071, "precision": 1.0, "recall": 0.42500001192092896}, {"truth_threshold": 4.822974520626426, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 30.0, "TN": 1145.0, "FP": 0.0, "FN": 50.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.375, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.625, "precision": 1.0, "recall": 0.375}, {"truth_threshold": 5.075703494401467, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 27.0, "TN": 1145.0, "FP": 0.0, "FN": 53.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.3375000059604645, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.6625000238418579, "precision": 1.0, "recall": 0.3375000059604645}, {"truth_threshold": 5.371633359434597, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 25.0, "TN": 1145.0, "FP": 0.0, "FN": 55.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.3125, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.6875, "precision": 1.0, "recall": 0.3125}, {"truth_threshold": 5.561914429274184, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 23.0, "TN": 1145.0, "FP": 0.0, "FN": 57.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.2874999940395355, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.7124999761581421, "precision": 1.0, "recall": 0.2874999940395355}, {"truth_threshold": 5.75628827060755, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 22.0, "TN": 1145.0, "FP": 0.0, "FN": 58.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.2750000059604645, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.7250000238418579, "precision": 1.0, "recall": 0.2750000059604645}, {"truth_threshold": 5.848325062033588, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 20.0, "TN": 1145.0, "FP": 0.0, "FN": 60.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.25, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.75, "precision": 1.0, "recall": 0.25}, {"truth_threshold": 6.4983089947264325, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 19.0, "TN": 1145.0, "FP": 0.0, "FN": 61.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.23749999701976776, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.762499988079071, "precision": 1.0, "recall": 0.23749999701976776}, {"truth_threshold": 7.14835420954672, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 17.0, "TN": 1145.0, "FP": 0.0, "FN": 63.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.21250000596046448, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.7875000238418579, "precision": 1.0, "recall": 0.21250000596046448}, {"truth_threshold": 7.992711983572931, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 16.0, "TN": 1145.0, "FP": 0.0, "FN": 64.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.20000000298023224, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.800000011920929, "precision": 1.0, "recall": 0.20000000298023224}, {"truth_threshold": 10.597231340296712, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 15.0, "TN": 1145.0, "FP": 0.0, "FN": 65.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.1875, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.8125, "precision": 1.0, "recall": 0.1875}, {"truth_threshold": 10.98496706694079, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 13.0, "TN": 1145.0, "FP": 0.0, "FN": 67.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.16249999403953552, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.8374999761581421, "precision": 1.0, "recall": 0.16249999403953552}, {"truth_threshold": 11.723906975588548, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 12.0, "TN": 1145.0, "FP": 0.0, "FN": 68.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.15000000596046448, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.8500000238418579, "precision": 1.0, "recall": 0.15000000596046448}, {"truth_threshold": 11.789908289279118, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 11.0, "TN": 1145.0, "FP": 0.0, "FN": 69.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.13750000298023224, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.862500011920929, "precision": 1.0, "recall": 0.13750000298023224}, {"truth_threshold": 12.26659999187811, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 10.0, "TN": 1145.0, "FP": 0.0, "FN": 70.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.125, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.875, "precision": 1.0, "recall": 0.125}, {"truth_threshold": 12.827689230743484, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 9.0, "TN": 1145.0, "FP": 0.0, "FN": 71.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.11249999701976776, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.887499988079071, "precision": 1.0, "recall": 0.11249999701976776}, {"truth_threshold": 12.916583924570954, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 8.0, "TN": 1145.0, "FP": 0.0, "FN": 72.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.10000000149011612, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.8999999761581421, "precision": 1.0, "recall": 0.10000000149011612}, {"truth_threshold": 13.034617084154403, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 7.0, "TN": 1145.0, "FP": 0.0, "FN": 73.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.08749999850988388, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.9125000238418579, "precision": 1.0, "recall": 0.08749999850988388}, {"truth_threshold": 13.1385387705909, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 6.0, "TN": 1145.0, "FP": 0.0, "FN": 74.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.07500000298023224, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.925000011920929, "precision": 1.0, "recall": 0.07500000298023224}, {"truth_threshold": 14.503023704843491, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 5.0, "TN": 1145.0, "FP": 0.0, "FN": 75.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.0625, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.9375, "precision": 1.0, "recall": 0.0625}, {"truth_threshold": 20.92129863468801, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 4.0, "TN": 1145.0, "FP": 0.0, "FN": 76.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.05000000074505806, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.949999988079071, "precision": 1.0, "recall": 0.05000000074505806}, {"truth_threshold": 24.448630562439725, "row_count": 1225.0, "P": 80.0, "N": 1145.0, "TP": 3.0, "TN": 1145.0, "FP": 0.0, "FN": 77.0, "P_rate": 0.0, "N_rate": 0.9346938729286194, "TP_rate": 0.03750000149011612, "TN_rate": 1.0, "FP_rate": 0.0, "FN_rate": 0.9624999761581421, "precision": 1.0, "recall": 0.03750000149011612}]}, "mark": {"type": "line", "clip": true, "point": true}, "encoding": {"tooltip": [{"type": "quantitative", "field": "truth_threshold", "format": ".4f"}, {"type": "quantitative", "field": "FP_rate", "format": ".4f"}, {"type": "quantitative", "field": "TP_rate", "format": ".4f"}, {"type": "quantitative", "field": "TP", "format": ",.0f"}, {"type": "quantitative", "field": "TN", "format": ",.0f"}, {"type": "quantitative", "field": "FP", "format": ",.0f"}, {"type": "quantitative", "field": "FN", "format": ",.0f"}, {"type": "quantitative", "field": "precision", "format": ".4f"}, {"type": "quantitative", "field": "recall", "format": ".4f"}], "x": {"type": "quantitative", "field": "recall", "sort": ["-recall"], "title": "Recall"}, "y": {"type": "quantitative", "field": "precision", "sort": ["-precision"], "title": "Precision"}}, "height": 400, "width": 400}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="splink-comparison-viewer">Splink comparison viewer<a class="headerlink" href="#splink-comparison-viewer" title="Permanent link">&para;</a></h2>
+<p>Create a <a href="https://www.youtube.com/watch?v=DNvCMqjipis">splink_comparison_viewer</a> interactive dashboard and display in an iframe</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">linker</span><span class="o">.</span><span class="n">comparison_viewer_dashboard</span><span class="p">(</span><span class="n">df_predictions</span><span class="p">,</span> <span class="s2">&quot;scv.html&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+
+<span class="n">IFrame</span><span class="p">(</span>
+    <span class="n">src</span><span class="o">=</span><span class="s2">&quot;./scv.html&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1200</span>
+<span class="p">)</span>  
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+        <iframe
+            width="100%"
+            height="1200"
+            src="./scv.html"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="clustering-and-visualising-clusters">Clustering and visualising clusters<a class="headerlink" href="#clustering-and-visualising-clusters" title="Permanent link">&para;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df_clustered</span> <span class="o">=</span> <span class="n">linker</span><span class="o">.</span><span class="n">cluster_pairwise_predictions_at_threshold</span><span class="p">(</span><span class="n">df_predictions</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">df_clustered</span><span class="o">.</span><span class="n">as_pandas_dataframe</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+<code>Completed iteration 1, root rows count 32
+Completed iteration 2, root rows count 21
+Completed iteration 3, root rows count 11
+Completed iteration 4, root rows count 8
+Completed iteration 5, root rows count 3
+Completed iteration 6, root rows count 1
+Completed iteration 7, root rows count 0
+</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cluster_id</th>
+      <th>unique_id</th>
+      <th>first_name</th>
+      <th>surname</th>
+      <th>dob</th>
+      <th>city</th>
+      <th>email</th>
+      <th>cluster</th>
+      <th>tf_city</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>Robert</td>
+      <td>Alan</td>
+      <td>1971-06-24</td>
+      <td>NaN</td>
+      <td>robert255@smith.net</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Robert</td>
+      <td>Allen</td>
+      <td>1971-05-24</td>
+      <td>NaN</td>
+      <td>roberta25@smith.net</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Rob</td>
+      <td>Allen</td>
+      <td>1971-06-24</td>
+      <td>London</td>
+      <td>roberta25@smith.net</td>
+      <td>0</td>
+      <td>0.212792</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Robert</td>
+      <td>Alen</td>
+      <td>1971-06-24</td>
+      <td>Lonon</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0.007380</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>4</td>
+      <td>Grace</td>
+      <td>NaN</td>
+      <td>1997-04-26</td>
+      <td>Hull</td>
+      <td>grace.kelly52@jones.com</td>
+      <td>1</td>
+      <td>0.001230</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">linker</span><span class="o">.</span><span class="n">cluster_studio_dashboard</span><span class="p">(</span><span class="n">df_predictions</span><span class="p">,</span><span class="n">df_clustered</span><span class="p">,</span> <span class="n">sampling_method</span><span class="o">=</span><span class="s2">&quot;by_cluster_size&quot;</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s2">&quot;cluster_studio.html&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+
+<span class="n">IFrame</span><span class="p">(</span>
+    <span class="n">src</span><span class="o">=</span><span class="s2">&quot;./cluster_studio.html&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1200</span>
+<span class="p">)</span>  
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+        <iframe
+            width="100%"
+            height="1200"
+            src="./cluster_studio.html"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+</div>
+</div>
+
+              
+            </article>
+            
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="03_Predicting_results.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3.Predicting results" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              3.Predicting results
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="real_time_record_linkage.html" class="md-footer__link md-footer__link--next" aria-label="Next: real time record linkage" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              real time record linkage
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "content.tabs.link", "content.tooltips", "header.autohide", "search.highlight", "search.share", "search.suggest"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.0238f547.min.js"></script>
+      
+    
+  </body>
+</html>
